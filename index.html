@@ -1,17 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WIFI DJ</title>
+  <title>MemeChain Platform</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>WIFI DJ Web3</h1>
+<!-- Header -->
+<header>
+  <div class="header-row">
+    <h1>MemeChain Platform</h1>
+    <div class="header-right">
+      <span id="networkBadge" class="badge">TestNet</span>
+      <button id="connectBtn">Connect Wallet</button>
+      <span id="walletAddress" class="wallet-addr"></span>
+    </div>
+  </div>
+</header>
 
-<button id="connectBtn">Connect Wallet</button>
-<p id="walletAddress"></p>
+<!-- Status bar -->
+<div id="status" class="status"></div>
 
-<button id="mintBtn">Mint Sample NFT</button>
+<!-- Contract Info Panel -->
+<section class="card">
+  <h2>MemeToken Contract</h2>
+  <div class="info-grid">
+    <div class="info-item">
+      <span class="label">App ID</span>
+      <span id="appIdDisplay" class="value">--</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Token</span>
+      <span id="tokenName" class="value">--</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Symbol</span>
+      <span id="tokenSymbol" class="value">--</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Total Supply</span>
+      <span id="totalSupply" class="value">--</span>
+    </div>
+    <div class="info-item">
+      <span class="label">My Balance</span>
+      <span id="myBalance" class="value">--</span>
+    </div>
+  </div>
+  <button id="refreshBtn" class="btn-secondary">Refresh</button>
+</section>
+
+<!-- Transfer Section -->
+<section class="card requires-wallet disabled">
+  <h2>Transfer Tokens</h2>
+  <div class="form-row">
+    <input id="transferTo" type="text" placeholder="Recipient address (58 chars)" maxlength="58">
+  </div>
+  <div class="form-row">
+    <input id="transferAmount" type="number" placeholder="Amount" min="1">
+    <button id="transferBtn" class="btn-primary">Send</button>
+  </div>
+</section>
+
+<!-- Mint NFT (original feature) -->
+<section class="card requires-wallet disabled">
+  <h2>Mint NFT</h2>
+  <p class="hint">Create a WIFI DJ NFT on Algorand TestNet</p>
+  <button id="mintBtn" class="btn-primary">Mint Sample NFT</button>
+</section>
 
 <script type="module" src="main.js"></script>
 
