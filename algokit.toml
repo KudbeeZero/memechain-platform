@@ -1,0 +1,23 @@
+[project]
+type = "contract"
+name = "memechain-platform"
+artifacts = "artifacts"
+
+[project.deploy]
+command = "npx tsx deploy/deploy.ts"
+
+[project.run.compile]
+description = "Compile TypeScript contracts to TEAL & ARC-56"
+command = "npx puya-ts contracts/ --out-dir ../artifacts/[name] --output-arc56 --output-arc32 --output-teal --optimization-level 1"
+
+[project.run.test]
+description = "Run contract tests"
+command = "npx vitest run"
+
+[project.run.troubleshoot]
+description = "Diagnose environment and artifact issues"
+command = "npx tsx scripts/troubleshoot.ts"
+
+[project.run.generate-client]
+description = "Generate typed client from ARC-56 spec"
+command = "npx tsx scripts/generate-client.ts"

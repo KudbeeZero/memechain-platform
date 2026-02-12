@@ -1,0 +1,41 @@
+{
+  "name": "memechain-platform",
+  "version": "1.0.0",
+  "description": "MemeChain Intelligence Platform — Algorand TypeScript smart contracts on TestNet",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "compile": "npx puya-ts contracts/ --out-dir ../artifacts/[name] --output-arc56 --output-arc32 --output-teal --optimization-level 1",
+    "compile:debug": "npx puya-ts contracts/ --out-dir ../artifacts/[name] --output-arc56 --output-teal --debug-level 1 --optimization-level 0",
+    "test": "npx vitest run",
+    "test:watch": "npx vitest",
+    "deploy": "npx tsx deploy/deploy.ts",
+    "deploy:token": "npx tsx deploy/deploy.ts MemeToken",
+    "deploy:vault": "npx tsx deploy/deploy.ts MemeVault",
+    "troubleshoot": "npx tsx scripts/troubleshoot.ts",
+    "generate-client": "npx tsx scripts/generate-client.ts",
+    "typecheck": "npx tsc --noEmit",
+    "build": "npm run compile && npm run generate-client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:35028/git/KudbeeZero/memechain-platform"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@algorandfoundation/algokit-client-generator": "^6.0.1",
+    "@algorandfoundation/algokit-utils": "^9.2.0",
+    "@algorandfoundation/algorand-typescript": "^1.1.0",
+    "algosdk": "^3.5.2",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@algorandfoundation/puya-ts": "^1.1.0",
+    "@types/node": "^25.2.3",
+    "dotenv": "^17.2.4",
+    "tsx": "^4.21.0",
+    "vitest": "^4.0.18"
+  }
+}
